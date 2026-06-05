@@ -2,6 +2,7 @@
 #include <filesystem>
 #include <vector>
 #include <iostream>
+#include <miniz.h>
 
 namespace fs = std::filesystem;
 
