@@ -40,6 +40,12 @@ fs::path concat_game_path(const fs::path& steam_path){
     return game_path;
 }
 
+// concatenate the game path with the mod path
+fs::path concat_mod_path(const fs::path& game_path){
+    fs::path mod_path = game_path /L"Wandering_Sword" / L"Content" / L"Paks";
+    return mod_path;
+}
+
 bool validate_game_path(const fs::path& game_path){
     if (!fs::exists(game_path) || !fs::is_directory(game_path)){
         std::wcerr << L"Game not found at: " << game_path << std::endl;
@@ -48,20 +54,6 @@ bool validate_game_path(const fs::path& game_path){
     return true;
 }
 
-// concatenate the game path with the mod path
-fs::path concat_mod_path(const fs::path& game_path){
-    fs::path mod_path = game_path /L"Wandering_Sword" / L"Content" / L"Paks";
-    return mod_path;
-}
-
-// check if the game mod path exists
-bool validate_mod_path(const fs::path& mod_path){
-    if (!fs::exists(mod_path) || !fs::is_directory(mod_path)){
-        std::wcerr << L" Mod not found at: " << mod_path << std::endl;
-        return false;
-    }
-    return true;
-}
 
 // find and validate all paths, return a struct of paths
 bool find_paths(Paths& game_paths){
@@ -71,15 +63,15 @@ bool find_paths(Paths& game_paths){
             break;
         }
     }
+    // concatenate the paths
     game_paths.game_path = concat_game_path(game_paths.steam_path);
+    game_paths.mod_install_dir = concat_mod_path(game_paths.game_path);
+
+    // validate the game mod installation directory
     if (!validate_game_path(game_paths.game_path)){
-        std::wcerr << L"Game not found at: " << game_paths.game_path << std::endl;
+        std::wcerr << L"Game not found at: " << game_paths.mod_install_dir << std::endl;
         return false;
     }
-    game_paths.mod_path = concat_mod_path(game_paths.game_path);
-    if (!validate_mod_path(game_paths.mod_path)){
-        std::wcerr << L" Mod not found at: " << game_paths.mod_path << std::endl;
-        return false;
-    }
+
     return true;
 }

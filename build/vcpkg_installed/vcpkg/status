@@ -1,0 +1,23 @@
+Package: vcpkg-cmake-config
+Version: 2024-05-23
+Architecture: x64-windows
+Multi-Arch: same
+Abi: f4285609366ba97d634babef3748c00075bc479102f78a9f2fc2ced75df25cab
+Status: install ok installed
+
+Package: vcpkg-cmake
+Version: 2024-04-23
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 8ba34e2d3d879f68ddd701d766bcc9af3f8cf1dfacdf35ec678fa6437a2cf183
+Status: install ok installed
+
+Package: miniz
+Version: 3.1.1
+Depends: vcpkg-cmake, vcpkg-cmake-config
+Architecture: x64-windows
+Multi-Arch: same
+Abi: 4c9e41863527b7868bf5dfb5f374520c9dcb3ac19c963724385c5aac29327a53
+Description: Single C source file zlib-replacement library
+Status: install ok installed
+

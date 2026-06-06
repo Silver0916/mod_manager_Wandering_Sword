@@ -11,8 +11,5 @@ add_executable(mod_installer
     src/mod_installer.cpp
     )
 
-find_path(MINIZ_INCLUDE_DIR miniz.h)
-find_library(MINIZ_LIBRARY miniz)
-
-target_include_directories(mod_installer PRIVATE ${MINIZ_INCLUDE_DIR})
-target_link_libraries(mod_installer PRIVATE ${MINIZ_LIBRARY})
+find_package(miniz CONFIG REQUIRED)
+target_link_libraries(mod_installer PRIVATE miniz::miniz)

@@ -1,0 +1,3 @@
+D:/projs/mod_installer_wandering_sword/build/CMakeFiles/mod_installer.dir
+D:/projs/mod_installer_wandering_sword/build/CMakeFiles/ALL_BUILD.dir
+D:/projs/mod_installer_wandering_sword/build/CMakeFiles/ZERO_CHECK.dir

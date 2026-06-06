@@ -1,0 +1,10 @@
+^D:\PROJS\MOD_INSTALLER_WANDERING_SWORD\BUILD\CMAKEFILES\1852470BDD54F946DCDF40779B88B7F2\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SD:/projs/mod_installer_wandering_sword -BD:/projs/mod_installer_wandering_sword/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/projs/mod_installer_wandering_sword/build/mod_installer_wandering_sword.slnx
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
